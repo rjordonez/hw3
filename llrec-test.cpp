@@ -69,27 +69,31 @@ void dealloc(Node* head)
 
 
 
+struct IsOdd {
+    bool operator()(int x) const { return x % 2 != 0; }
+};
 
-
-int main(int argc, char* argv[])
-{
-    if(argc < 2) {
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
         cout << "Please provide an input file" << endl;
         return 1;
     }
 
-    // -----------------------------------------------
-    // Feel free to update any code below this point
-    // -----------------------------------------------
+    // Read the list from the file
     Node* head = readList(argv[1]);
     cout << "Original list: ";
     print(head);
 
     // Test out your linked list code
+    // Apply the filter to remove odd numbers
+    head = llfilter(head, IsOdd());
 
+    // Print the filtered list
+    cout << "Filtered list (odd numbers removed): ";
+    print(head);
 
+    // Deallocate the linked list
+    dealloc(head);
 
-    
     return 0;
-
 }

@@ -10,6 +10,7 @@ int main(int argc, char* argv[])
 {
 	stringstream ss;
   Circuit C;
+
   if(argc != 1)
   {
     if(C.parse(argv[1]))
@@ -25,4 +26,5 @@ int main(int argc, char* argv[])
       cout << "Please provide a circuit file to simulate." << endl;
       return 1;
   }
+
 }
